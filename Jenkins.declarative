@@ -3,7 +3,7 @@ pipeline {
     stages {
     stage ('SCM checkout') {
       steps {
-        git branch: 'main' url: 'https://github.com/asifkhazi/Jenkins-Declarative.git'
+        git branch: 'main' url: 'https://github.com/asifkhazi/java-tomcat-maven-example.git'
       }
     }
     stage ('Build') {
@@ -13,7 +13,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps {
-        sh 'rsync -arzvh ${WORKSPACE}/target/*.jar' /opt/tomcat/apache-tomcat-9.0.68/webapps/'
+        sh 'rsync -arzvh ${WORKSPACE}/target/*.war' /opt/tomcat/apache-tomcat-9.0.68/webapps/'
       }
     }
 }
