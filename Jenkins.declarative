@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+    stages {
+    stage ('SCM checkout') {
+      steps {
+        git branch: 'main' url: 'https://github.com/asifkhazi/Jenkins-Declarative.git'
+      }
+    }
+    stage ('Build') {
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        sh 'rsync -arzvh ${WORKSPACE}/target/*.jar' /opt/tomcat/apache-tomcat-9.0.68/webapps/'
+      }
+    }
+}
