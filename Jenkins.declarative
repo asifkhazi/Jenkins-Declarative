@@ -16,4 +16,5 @@ pipeline {
         sh 'rsync -arzvh ${WORKSPACE}/target/*.war' /opt/tomcat/apache-tomcat-9.0.68/webapps/'
       }
     }
+  }
 }
