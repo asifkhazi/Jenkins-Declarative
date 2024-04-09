@@ -13,7 +13,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps {
-        sh 'echo "rsync -arzvh ${WORKSPACE}/target/*.war' /opt/tomcat/apache-tomcat-9.0.68/webapps/"'
+        sh 'echo "Deploy to the tomcat server"'
       }
     }
   }
