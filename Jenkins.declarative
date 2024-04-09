@@ -3,7 +3,7 @@ pipeline {
     stages {
     stage ('SCM checkout') {
       steps {
-        sh 'echo "git branch: 'main', url: 'https://github.com/asifkhazi/Jenkins-declarative.git'"'
+        sh 'echo "git checkout"'
       }
     }
     stage ('Build') {
