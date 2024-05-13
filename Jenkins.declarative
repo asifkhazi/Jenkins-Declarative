@@ -1,20 +1,25 @@
 pipeline {
   agent any
     stages {
-    stage ('SCM checkout') {
-      steps {
-        sh 'echo "git checkout "'
+      stage ('SCM checkout') {
+        steps {
+          sh 'echo "git checkout "'
+        }
       }
-    }
-    stage ('Build') {
-      steps {
-        sh 'echo "mvn clean install"'
+      stage ('Build') {
+        steps {
+          sh 'echo "mvn clean install"'
+        }
       }
-    }
-    stage ('Deploy') {
-      steps {
-        sh 'echo "Deploy to tomcat server"'
+      stage ('Push docker hub') {
+        steps {
+          sh 'echo "Pushing docker image to Docker Hub"'
+        }
       }
-    }
+      stage ('Deploy'){
+        steps {
+          sh 'echo "Deploy to environment"'
+        }
+      }
   }
 }
